@@ -1,7 +1,6 @@
 name: Build and Push Indexer to ACR
 
 on: 
-  push:
   workflow_dispatch:
 
 jobs:
@@ -25,7 +24,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        context: app/indexer/microservice/.
+        context: app/indexer/.
         push: true
         tags: ${{ secrets.ACR_REGISTRY }}/indexer:latest
         file: app/indexer/microservice/Dockerfile
