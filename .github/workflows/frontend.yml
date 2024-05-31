@@ -18,7 +18,7 @@ jobs:
     - name: Login to ACR
       uses: azure/docker-login@v2
       with:
-        login-server: ${{ secrets.ACR_REGISTRY }}
+        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
 
@@ -27,5 +27,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.ACR_NAME }}/frontend:latest
+        tags: ${{ secrets.ACR_REGISTRY }}/frontend:latest
         file: app/frontend/Dockerfile
